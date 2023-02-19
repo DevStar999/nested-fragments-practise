@@ -2,59 +2,74 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/destroy_area_fragment_root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@android:color/holo_blue_dark"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".ParentFragment">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/vertical_left_main_activity_guideline"
+        android:id="@+id/vertical_left_parent_fragment_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/vertical_right_main_activity_guideline"
+        android:id="@+id/vertical_right_parent_fragment_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontal_top_main_activity_guideline"
+        android:id="@+id/horizontal_top_parent_fragment_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.4" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontal_bottom_main_activity_guideline"
+        android:id="@+id/horizontal_bottom_parent_fragment_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title_main_activity_text_view"
+        android:id="@+id/title_parent_fragment_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main Activity"
+        android:text="Parent Fragment"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_top_main_activity_guideline"
+        app:layout_constraintBottom_toTopOf="@id/parent_fragment_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/parent_fragment_button"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Send message to activity"
+        android:scrollHorizontally="false"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_top_parent_fragment_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_parent_fragment_text_view"/>
+
     <FrameLayout
-        android:id="@+id/parent_fragment_container"
+        android:id="@+id/child_fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/horizontal_bottom_main_activity_guideline"
-        app:layout_constraintEnd_toEndOf="@id/vertical_right_main_activity_guideline"
-        app:layout_constraintStart_toStartOf="@id/vertical_left_main_activity_guideline"
-        app:layout_constraintTop_toTopOf="@id/horizontal_top_main_activity_guideline" />
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_bottom_parent_fragment_guideline"
+        app:layout_constraintEnd_toEndOf="@id/vertical_right_parent_fragment_guideline"
+        app:layout_constraintStart_toStartOf="@id/vertical_left_parent_fragment_guideline"
+        app:layout_constraintTop_toTopOf="@id/horizontal_top_parent_fragment_guideline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
